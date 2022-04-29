@@ -1,0 +1,53 @@
+appname = mepmgr
+httpport = 8848
+runmode = dev
+copyrequestbody = true
+autorender = false
+
+# database configuration:
+DBHost = "127.0.0.1"
+DBPort = "5432"
+DBName = "mepm"
+DBUser = "mepm"
+DBPasswd = "123456"
+DBConnTTL = 30
+InitDBFlag = true
+ShowSql = false
+DBTimeZone = "Asia/shanghai"
+
+EnableDocs = true
+MepCheckerDuration = 60
+
+#log conf
+sys_log_path = ./logs/mepmgr.log
+opt_log_path = ./logs/mepmgr_opt.log
+mep_log_path = ./logs/mep.log
+#single file max size（unit:M）
+maxsize = 20
+#single file max days of rotation
+max_days = 7
+
+## 故障上报和性能上报地址、networkmgr地址，添加mep时，带给mep
+PerformanceAddress = "http://127.0.0.1:8014"
+AlarmAddress = "http://127.0.0.1:30901"
+NetworkmgrAddress = "http://127.0.0.1:8012"
+mepSalt="OpenSigma@10086"
+
+## mepm证书相关预配置
+
+##ca根证书
+RootCert = conf/ssl/ca.crt
+RootKey = conf/ssl/ca.key
+## mepm客户端证书存放路径
+ClientCert = conf/ssl/client/client.crt
+ClientKey = conf/ssl/client/client.key
+## mepm服务端证书存放路径
+ServerCert = conf/ssl/server/server.crt
+ServerKey = conf/ssl/server/server.key
+
+#docker sock文件所在路径
+DockerSock = "unix:///var/run/docker.sock"
+#容器执行命令
+DockerCommand = "nginx -s reload"
+#目标容器名
+DockerContainerName = "nginx_server"
